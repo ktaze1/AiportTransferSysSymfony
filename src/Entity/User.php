@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class Category
+class User
 {
     /**
      * @ORM\Id()
@@ -17,32 +17,32 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $parentid;
+    private $name;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $title;
+    private $surname;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $keywords;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description;
+    private $password;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    private $role;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $status;
 
@@ -61,62 +61,62 @@ class Category
         return $this->id;
     }
 
-    public function getParentid(): ?int
+    public function getName(): ?string
     {
-        return $this->parentid;
+        return $this->name;
     }
 
-    public function setParentid(?int $parentid): self
+    public function setName(?string $name): self
     {
-        $this->parentid = $parentid;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getSurname(): ?string
     {
-        return $this->title;
+        return $this->surname;
     }
 
-    public function setTitle(?string $title): self
+    public function setSurname(?string $surname): self
     {
-        $this->title = $title;
+        $this->surname = $surname;
 
         return $this;
     }
 
-    public function getKeywords(): ?string
+    public function getEmail(): ?string
     {
-        return $this->keywords;
+        return $this->email;
     }
 
-    public function setKeywords(?string $keywords): self
+    public function setEmail(?string $email): self
     {
-        $this->keywords = $keywords;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getPassword(): ?string
     {
-        return $this->description;
+        return $this->password;
     }
 
-    public function setDescription(?string $description): self
+    public function setPassword(?string $password): self
     {
-        $this->description = $description;
+        $this->password = $password;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getRole(): ?string
     {
-        return $this->image;
+        return $this->role;
     }
 
-    public function setImage(?string $image): self
+    public function setRole(?string $role): self
     {
-        $this->image = $image;
+        $this->role = $role;
 
         return $this;
     }
