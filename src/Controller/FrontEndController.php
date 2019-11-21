@@ -12,7 +12,7 @@ class FrontEndController extends AbstractController
      */
     public function index()
     {
-        return $this->render('frontendindex.html.twig', [
+        return $this->render('front_end/index.html.twig', [
             'controller_name' => 'FrontEndController',
         ]);
     }
