@@ -16,10 +16,6 @@ class Image
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $transportationId;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -31,23 +27,21 @@ class Image
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Station", inversedBy="images")
+     */
+    private $Station;
+
+    public function __toString(){
+        return $this->title;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTransportationId(): ?int
-    {
-        return $this->transportationId;
-    }
-
-    public function setTransportationId(?int $transportationId): self
-    {
-        $this->transportationId = $transportationId;
-
-        return $this;
-    }
-
+    
     public function getTitle(): ?string
     {
         return $this->title;
@@ -68,6 +62,18 @@ class Image
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getStation(): ?Station
+    {
+        return $this->Station;
+    }
+
+    public function setStation(?Station $Station): self
+    {
+        $this->Station = $Station;
 
         return $this;
     }

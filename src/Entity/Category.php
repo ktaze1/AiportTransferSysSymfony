@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,21 @@ class Category
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Station", mappedBy="Category")
+     */
+    private $stations;
+
+    
+    public function __toString()
+  {
+    return $this->getTitle();
+  }
+    public function __construct()
+    {
+        $this->stations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -156,4 +173,36 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @return Collection|Station[]
+     */
+    public function getStations(): Collection
+    {
+        return $this->stations;
+    }
+
+    public function addStation(Station $station): self
+    {
+        if (!$this->stations->contains($station)) {
+            $this->stations[] = $station;
+            $station->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStation(Station $station): self
+    {
+        if ($this->stations->contains($station)) {
+            $this->stations->removeElement($station);
+            // set the owning side to null (unless already changed)
+            if ($station->getCategory() === $this) {
+                $station->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

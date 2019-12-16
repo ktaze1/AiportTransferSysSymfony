@@ -1,0 +1,72 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}Station{% endblock %}
+
+{% block body %}
+
+<div class="main-panel">
+<div class="content-wrapper">
+    <h1>Station</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ station.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ station.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ station.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ station.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('uploads/images/' ~ station.image) }}" height="40"></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ station.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ station.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ station.country }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ station.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ station.createdAt ? station.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ station.updatedAt ? station.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+              <a href="{{ path('admin_station_index') }}" class="btn btn-inverse-primary btn-rounded btn-fw"> Back to list</a>
+
+            <a href="{{ path('admin_station_edit', {'id': station.id}) }}" class="btn btn-inverse-secondary btn-rounded btn-fw"> Edit </a>
+      
+        
+        <div style="float: right">
+        
+            {{ include('back_end/station/_delete_form.html.twig') }}
+        </div>
+    
+
+    </div>
+{% endblock %}
