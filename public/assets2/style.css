@@ -102,7 +102,7 @@ img{
   position:absolute;
   left:50%; /* centers the loading animation horizontally one the screen */
   top:50%; /* centers the loading animation vertically one the screen */
-  background-image:url(assets/images/loader.gif); /* path to your loading animation */
+  background-image:url('../assets2/images/loader.gif'); /* path to your loading animation */
   background-repeat:no-repeat;
   background-position:center;
   margin:-100px 0 0 -100px; /* is width and height divided by two */
@@ -857,7 +857,7 @@ img{
 
 #counter{
 	background-attachment: fixed !important;
-	background-image: url("assets/images/counter-bg.jpg");
+	background-image: url("../assets2/images/counter-bg.jpg");
 	background-repeat: repeat;
 	background-size: cover;
 	color: #ffffff;
@@ -1224,7 +1224,7 @@ img{
 
 #testimonial {
   background-attachment: fixed !important;
-  background-image: url("assets/images/testimonial-1.jpg");
+  background-image: url("../assets2/images/testimonial-1.jpg");
   background-repeat: repeat;
   background-size: cover;
   color: #ffffff;
@@ -1452,7 +1452,7 @@ img{
 
 #subscribe{
   background-attachment: fixed !important;
-  background-image: url("assets/images/subscribe-bg.jpg");
+  background-image: url("../assets2/images/subscribe-bg.jpg");
   background-repeat: repeat;
   background-size: cover;
   color: #ffffff;
@@ -1572,7 +1572,7 @@ img{
 
 #single-page-header{
   background-attachment: fixed !important;
-  background-image: url("assets/images/slider-5.jpg");
+  background-image: url("../assets2/images/slider-5.jpg");
   background-repeat: repeat;
   background-size: cover;
   color: #ffffff;

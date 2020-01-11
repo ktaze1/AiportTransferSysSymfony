@@ -1,0 +1,45 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+<div class="content-wrapper">
+    <h1>Setting index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.title }}</td>
+                <td>{{ setting.company }}</td>
+                <td>{{ setting.email }}</td>
+                <td>{{ setting.status }}</td>
+                <td>
+                    <a href="{{ path('admin_setting_show', {'id': setting.id}) }}" class="btn btn-info btn-fw">show</a>
+                    <a href="{{ path('admin_setting_edit', {'id': setting.id}) }}" class="btn btn-info btn-fw">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+                <br>
+                <a href="{{ path( 'admin_setting_new') }}">Create new</a>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

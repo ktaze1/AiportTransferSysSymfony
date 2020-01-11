@@ -38,7 +38,7 @@ class StationType extends AbstractType
                         'mimeTypes' => [
                             'image/*',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid PDF document',
+                        'mimeTypesMessage' => 'Please upload a valid image',
                     ])
                 ],
             ])

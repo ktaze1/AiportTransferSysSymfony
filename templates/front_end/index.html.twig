@@ -1,6 +1,8 @@
 {% extends "frontendindex.html.twig" %}
 
-{% block title %} Homepage {% endblock %}
+{% block title %} {{ data.title}} {% endblock %}
+{% block keywords %} {{data.keywords}}{% endblock %}
+{% block description %} {{data.description}} {% endblock %}
 
 {% block body %} 
 
@@ -134,7 +136,7 @@
                       </div>
                       <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
-                        <img class="why-choose-img" src="assets2/images/testi1.jpg" alt="img">
+                        <img class="why-choose-img" src="{{ asset('assets2')}}/images/testi1.jpg" alt="img">
                          <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
                         </div>
                       </div>
@@ -468,7 +470,7 @@
               <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-team-member">
                  <div class="team-member-img">
-                   <img src="assets2/images/team-member-2.png" alt="team member img">
+                   <img src="{{ asset('assets2')}}/images/team-member-2.png" alt="team member img">
                  </div>
                  <div class="team-member-name">
                    <p>John Doe</p>
@@ -487,7 +489,7 @@
               <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-team-member">
                  <div class="team-member-img">
-                   <img src="assets2/images/team-member-1.png" alt="team member img">
+                   <img src="{{ asset('assets2')}}/images/team-member-1.png" alt="team member img">
                  </div>
                  <div class="team-member-name">
                    <p>Bernice Neumann</p>
@@ -506,7 +508,7 @@
               <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-team-member">
                  <div class="team-member-img">
-                   <img src="assets2/images/team-member-3.png" alt="team member img">
+                   <img src="{{ asset('assets2')}}/images/team-member-3.png" alt="team member img">
                  </div>
                  <div class="team-member-name">
                    <p>Dvid Cameron</p>
@@ -525,7 +527,7 @@
               <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-team-member">
                  <div class="team-member-img">
-                   <img src="assets2/images/team-member-1.png" alt="team member img">
+                   <img src="{{ asset('assets2')}}/images/team-member-1.png" alt="team member img">
                  </div>
                  <div class="team-member-name">
                    <p>Bernice Neumann</p>
@@ -548,60 +550,7 @@
   </section>
   <!-- End Pricing table -->
   
-  <!-- Start Testimonial section -->
-  <section id="testimonial">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="title-area">
-                <h2 class="title">Whats Client Say</h2>
-                <span class="line"></span>           
-              </div>
-            </div>
-            <div class="col-md-12">
-              <!-- Start testimonial slider -->
-              <div class="testimonial-slider">
-                <!-- Start single slider -->
-                <div class="single-slider">
-                  <div class="testimonial-img">
-                    <img src="assets2/images/testi1.jpg" alt="testimonial image">
-                  </div>
-                  <div class="testimonial-content">
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                    <h6>Bernice Neumann, <span>Designer</span></h6>
-                  </div>
-                </div>
-                <!-- Start single slider -->
-                <div class="single-slider">
-                  <div class="testimonial-img">
-                    <img src="assets2/images/testi3.jpg" alt="testimonial image">
-                  </div>
-                  <div class="testimonial-content">
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                    <h6>John Dow, <span>CEO</span></h6>
-                  </div>
-                </div>
-                <!-- Start single slider -->
-                <div class="single-slider">
-                  <div class="testimonial-img">
-                    <img src="assets2/images/testi2.jpg" alt="testimonial image">
-                  </div>
-                  <div class="testimonial-content">
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                    <h6>Michel, <span>Developer</span></h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6"></div>        
-      </div>
-    </div>
-  </section>
-  <!-- End Testimonial section -->
+
 
   <!-- Start Clients brand -->
   <section id="clients-brand">
@@ -612,42 +561,42 @@
             <ul class="clients-brand-slide">
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/amazon.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/amazon.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/discovery.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/discovery.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/envato.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/envato.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/tuenti.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/tuenti.png" alt="img">
                 </div>
               </li>
                <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/amazon.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/amazon.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/discovery.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/discovery.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/envato.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/envato.png" alt="img">
                 </div>
               </li>
               <li class="col-md-3">
                 <div class="single-brand">
-                  <img src="assets2/images/tuenti.png" alt="img">
+                  <img src="{{ asset('assets2')}}/images/tuenti.png" alt="img">
                 </div>
               </li>
             </ul>
@@ -676,7 +625,7 @@
               <div class="col-md-4">
                 <article class="blog-news-single">
                   <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="assets2/images/blog-img-1.jpg" alt="image"></a>
+                    <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('assets2')}}/images/blog-img-1.jpg" alt="image"></a>
                   </div>
                   <div class="blog-news-title">
                     <h2><a href="blog-single-with-right-sidebar.html">All about writing story</a></h2>
@@ -692,7 +641,7 @@
               <div class="col-md-4">
                 <article class="blog-news-single">
                   <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="assets2/images/blog-img-2.jpg" alt="image"></a>
+                    <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('assets2')}}/images/blog-img-2.jpg" alt="image"></a>
                   </div>
                   <div class="blog-news-title">
                     <h2><a href="blog-single-with-right-sidebar.html">Best Mobile Device</a></h2>
@@ -708,7 +657,7 @@
               <div class="col-md-4">
                 <article class="blog-news-single">
                   <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="assets2/images/blog-img-3.jpg" alt="image"></a>
+                    <a href="blog-single-with-right-sidebar.html"><img src="{{ asset('assets2')}}/images/blog-img-3.jpg" alt="image"></a>
                   </div>
                   <div class="blog-news-title">
                     <h2><a href="blog-single-with-right-sidebar.html">Personal Note Details</a></h2>
