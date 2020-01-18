@@ -1,0 +1,60 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}User List{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="main-panel">
+    <div class="content-wrapper"> 
+    <h1>Create new Transports</h1>
+
+    {{ include('admin/transports/_form.html.twig') }}
+
+    <a href="{{ path('admin_transports_index') }}">back to list</a>
+
+
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Stationid</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Transportcnt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            <tr>
+                <td>{{ transport.id }}</td>
+                <td>{{ transport.title }}</td>
+                <td>{{ transport.stationid }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ transport.image)}}"  style="height: 80px; width: 80px;"></td>
+                <td>{{ transport.price }}</td>
+                <td>{{ transport.status }}</td>
+                <td>{{ transport.transportcnt }}</td>
+                <td>
+                    <a href="{{ path('admin_transports_edit', {'id': transport.id, 'sid': station.id}) }}">edit</a>
+                    <form method="post" action="{{ path('admin_transports_delete', {'id': transport.id, 'sid': station.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ transport.id) }}">
+    <button class="btn">Delete</button>
+</form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

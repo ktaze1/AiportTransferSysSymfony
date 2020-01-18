@@ -25,9 +25,9 @@
                 <th>Address</th>
                 <th>City</th>
                 <th>Country</th>
+                <th>Gallery</th>
+                <th>Transportations</th>
                 <th>Status</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -45,6 +45,11 @@
                 <td>
                     <a href="javascript:openWin('{{ path('admin_image_new', {'id': station.id }) }}', '', 'toolbar=no,location=no,directories=0,status=no,top= 50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600')">
                         link
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_transports_new', {'id': station.id }) }}', '', 'toolbar=no,location=no,directories=0,status=no,top= 50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600')">
+                        Transports
                     </a>
                 </td>
                 <td>{{ station.status }}</td>

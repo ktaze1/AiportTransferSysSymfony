@@ -1,0 +1,58 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+<div class="content-wrapper">
+    <h1>Reservations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>Transports Type</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Departuretime</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Destination Station</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.uname }}</td>
+                <td>{{ reservation.ttype }}</td>
+                <td>{{ reservation.name }}</td>
+                <td>{{ reservation.surname }}</td>
+                <td>{{ reservation.email }}</td>
+                <td>{{ reservation.departuretime ? reservation.departuretime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.total }}</td>
+                <td>{{ reservation.status }}</td>
+                <td>{{ reservation.stitle }}</td>
+                <td>{{ reservation.created_at ? reservation.created_at|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.updated_at ? reservation.updated_at|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_reservations_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('admin_reservations_edit', {'id': reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_reservations_new') }}">Create new</a>
+    </div>
+{% endblock %}

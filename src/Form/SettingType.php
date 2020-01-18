@@ -40,7 +40,11 @@ class SettingType extends AbstractType
                     'uiColor' => '#ffffff',
                 ),
             ))
-            // add contactpage
+            ->add('contact', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                ),
+            ))
             ->add('status', ChoiceType::class, [
                 'choices' => [
                     'True' => 'True',

@@ -1,0 +1,107 @@
+{% extends 'frontendindex.html.twig' %}
+
+{% block title %}{{app.user.name}}'s Profile{% endblock %}
+
+{% block body %}
+
+<SCRIPT language="JavaScript" type="text/javascript">
+    function openWin( windowURL, windowName, windowFeatures) { window.open(windowURL, windowName, );}
+</SCRIPT>
+
+
+  <!-- Start single page header -->
+  <section id="single-page-header">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-left">
+              <h2>Blog Single</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Blog Single</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End single page header -->
+
+  
+  <section id="blog-archive">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-archive-area">
+
+  {% include "user/usersidebar.html.twig" %}
+    <h1>User</h1>
+
+              <div class="col-md-8">
+                <div class="blog-archive-left">
+     <h1>Station index</h1>
+ 
+    <table class="table">
+    <a href="{{ path('user_station_new') }}" class="btn btn-primary btn-fw">Create new</a>
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+               
+                <th>Image</th>
+              
+                <th>City</th>
+                <th>Country</th>
+                <th>Station Gallery</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for station in stations %}
+            <tr>
+                <td>{{ station.id }}</td>
+                <td>{{ station.title }}</td>
+              
+                <td><img src="{{ asset('uploads/images/' ~ station.image)}}" height="50"></td>
+               
+                <td>{{ station.city }}</td>
+                <td>{{ station.country }}</td>
+                <td>
+                    <a href="javascript:openWin('{{ path('user_image_new', {'id': station.id }) }}', '', 'toolbar=no,location=no,directories=0,status=no,top= 50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600')">
+                        Link
+                    </a>
+                </td>
+                <td>{{ station.status }}</td>
+              
+                <td>
+                    <div class="row">
+                        <a href="{{ path('user_station_show', {'id': station.id}) }}" class="btn btn-outline-primary btn-fw"> Show </a>
+                        <a href="{{ path('user_station_edit', {'id': station.id}) }}"  class="btn btn-secondary btn-fw"> Edit </a>
+                        {{ include('/station/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

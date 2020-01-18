@@ -83,6 +83,11 @@ class Station
      */
     private $images;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $userid;
+
     public function __toString(){
         return $this->title;
     }
@@ -267,6 +272,18 @@ class Station
                 $image->setStation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUserid(): ?int
+    {
+        return $this->userid;
+    }
+
+    public function setUserid(?int $userid): self
+    {
+        $this->userid = $userid;
 
         return $this;
     }

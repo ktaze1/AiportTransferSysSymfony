@@ -1,0 +1,79 @@
+
+{% extends 'frontendindex.html.twig' %}
+
+{% block title %}{{app.user.name}}'s Profile{% endblock %}
+
+{% block body %}
+
+  <!-- Start single page header -->
+  <section id="single-page-header">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-left">
+              <h2>Blog Single</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Blog Single</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End single page header -->
+
+  
+  <section id="blog-archive">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-archive-area">
+
+  {% include "user/usersidebar.html.twig" %}
+    <h1>{{ station.title}} > {{ transport.title}} on:  {{ departuretime }}</h1>
+
+              <div class="col-md-8">
+                <div class="blog-archive-left">
+                 <form name="reservations" method="post" class="comments-form contact-form">
+                    <div class="form-group">                        
+                      <input type="text" id="reservations_name" name="reservations[name]" value="{{app.user.name}}" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">                        
+                      <input type="text" id="reservations_name" name="reservations[surname]" value="{{app.user.surname}}" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">                        
+                      <input type="email" id="reservations_email" name="reservations[email]" value="{{app.user.email}}" class="form-control" placeholder="Email">
+                    </div>
+                     <div class="form-group">                        
+                      <input type="text" id="reservations_message" name="reservations[subject]"class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="form-group">                        
+                      <textarea placeholder="Comment" id="reservations_message" name="reservations[message]" rows="3" class="form-control"></textarea>
+                    </div> 
+                    <div class="form-group">
+                      <input type="date" id="departuretime" value={{ departuretime }} name="departuretime">
+                    </div>
+                    <div class="form-group">
+                      <input type="number" id="ticketcount" value={{ ticketcount }} name="ticketcount">
+                    </div>
+                   
+
+                    <input type="hidden" name="token" value="{{ csrf_token('form-message')}}" />
+                    <button type="submit" class="comment-btn">Submit Reservation</button>
+                  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

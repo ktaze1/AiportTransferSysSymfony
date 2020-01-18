@@ -1,0 +1,54 @@
+{% extends 'frontendindex.html.twig' %}
+
+{% block title %}{{app.user.name}}'s Profile{% endblock %}
+
+{% block body %}
+
+
+  <!-- Start single page header -->
+  <section id="single-page-header">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-left">
+              <h2>Blog Single</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Blog Single</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End single page header -->
+
+  
+  <section id="blog-archive">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-archive-area">
+
+  {% include "user/usersidebar.html.twig" %}
+    <h1> New User</h1>
+
+              <div class="col-md-8">
+                <div class="blog-archive-left">
+    {{ include('station/_form.html.twig') }}
+
+    <a href="{{ path('user_station_index') }}">back to list</a>
+   </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

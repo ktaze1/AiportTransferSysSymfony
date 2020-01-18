@@ -1,0 +1,14 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+<div class="main-panel">
+<div class="content-wrapper">
+    <h1>Create new Reservations</h1>
+
+    {{ include('admin/reservations/_form.html.twig') }}
+
+    <a href="{{ path('admin_reservations_index') }}">back to list</a>
+    </div>
+{% endblock %}

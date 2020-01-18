@@ -1,0 +1,13 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block body %}
+<div class="main-panel">
+<div class="content-wrapper">
+    <h1>Edit Reservations</h1>
+
+    {{ include('admin/reservations/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_reservations_index') }}">back to list</a>
+
+    {{ include('admin/reservations/_delete_form.html.twig') }}
+{% endblock %}

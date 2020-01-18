@@ -1,0 +1,102 @@
+{% extends 'frontendindex.html.twig' %}
+
+{% block title %} Comments{% endblock %}
+
+{% block body %}
+
+
+  <!-- Start single page header -->
+  <section id="single-page-header">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-left">
+              <h2>Blog Single</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Blog Single</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End single page header -->
+
+  
+  <section id="blog-archive">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-archive-area">
+
+  {% include "user/usersidebar.html.twig" %}
+   <h1> Reservations </h1> 
+
+    <div class="col-md-8">
+      <div class="blog-archive-left">
+                  <article class="blog-news-single">
+                    <div class="blog-news-details blog-single-details">
+                      <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Transportsid</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Departuretime</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.userid }}</td>
+                <td>{{ reservation.transportsid }}</td>
+                <td>{{ reservation.name }}</td>
+                <td>{{ reservation.surname }}</td>
+                <td>{{ reservation.email }}</td>
+                <td>{{ reservation.departuretime ? reservation.departuretime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.total }}</td>
+                <td>{{ reservation.status }}</td>
+                <td>{{ reservation.createdAt ? reservation.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.updatedAt ? reservation.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_reservations_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('admin_reservations_edit', {'id': reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>  
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

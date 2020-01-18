@@ -4,13 +4,12 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block  title %} front_end Homepage {% endblock %}</title>
+    <title>{% block  title %} Homepage {% endblock %}</title>
     {% block head %} {% include "front_end/head.html.twig" %}{% endblock %}
 </head>
 
 <body>
     {% block header %}{% include ('front_end/header.html.twig') %}{% endblock %}
-    {% block slider %} {% include ('front_end/slider.html.twig') %}{% endblock %}
     {% block body %} {% endblock %}
     {% block footer %} {% include ('front_end/footer.html.twig') %} {% endblock %}
 </body>

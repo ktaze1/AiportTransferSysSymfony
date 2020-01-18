@@ -1,0 +1,79 @@
+{% extends 'frontendindex.html.twig' %}
+
+{% block title %} Comments{% endblock %}
+
+{% block body %}
+
+
+  <!-- Start single page header -->
+  <section id="single-page-header">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-left">
+              <h2>Blog Single</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single-page-header-right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Blog Single</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End single page header -->
+
+  
+  <section id="blog-archive">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-archive-area">
+
+  {% include "user/usersidebar.html.twig" %}
+   <h1> Comments </h1> 
+
+    <div class="col-md-8">
+      <div class="blog-archive-left">
+                  <article class="blog-news-single">
+                    <div class="blog-news-details blog-single-details">
+                      <h4> Comment: <h4>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                      <div class="blog-single-bottom">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="blog-single-tag">
+                              <span class="fa fa-tags"></span>
+                              <a href="#">Design,</a>
+                              <a href="#">Photoshop,</a>
+                              <a href="#">Development</a>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="blog-single-social">
+                              <a href="#"><i class="fa fa-facebook"></i></a>
+                              <a href="#"><i class="fa fa-twitter"></i></a>
+                              <a href="#"><i class="fa fa-linkedin"></i></a>
+                              <a href="#"><i class="fa fa-google-plus"></i></a>
+                              <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>  
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

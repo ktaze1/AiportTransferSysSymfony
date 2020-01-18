@@ -8,7 +8,9 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class StationType extends AbstractType
 {
@@ -45,13 +47,16 @@ class StationType extends AbstractType
             ->add('address')
             ->add('city')
             ->add('country')
-            ->add('status')
+            ->add('status', ChoiceType::class, [
+                'choices' => [
+                    'True' => 'True',
+                    'False' => 'False',
+                ],
+            ])
             ->add('created_at')
             ->add('updated_at')
             ->add('detail', CKEditorType::class, array(
-                'config' => array(
-                    'uiColor' => '#ffffff',
-                ),
+                'config'      => array('uiColor' => '#ffffff'),
             ))
         ;
     }

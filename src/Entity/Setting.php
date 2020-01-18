@@ -92,19 +92,24 @@ class Setting
     private $twitter;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $aboutus;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text",  nullable=true)
      */
     private $reference;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $status;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $contact;
 
     public function getId(): ?int
     {
@@ -323,6 +328,18 @@ class Setting
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getContact(): ?string
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?string $contact): self
+    {
+        $this->contact = $contact;
 
         return $this;
     }

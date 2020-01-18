@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="{{asset('assets')}}/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset('assets')}}/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{asset('assets')}}/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{{asset('assets')}}/images/favicon.png" />
+
+
+<div class="main-panel">
+<div class="content-wrapper">
+
+
+
+<div class="card-body">
+    <form class="forms-sample" role="form" name="image" action="{{ path('user_image_new', {'id': id}) }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+        <label for="exampleInputName1">Name</label>
+        <input type="text" class="form-control" id="image_title" name="image[title]">
+        <input type="hidden" class="form-control" id="image_station" name="image[station]" value={{ id }}>
+        </div>
+        
+        <label>File upload</label>
+        <input type="file" name="image[image]" id="image_image" class="file-upload-default">
+        <div class="input-group col-xs-12">
+            <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+        </div>
+        <button type="submit" class="btn btn-success mr-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+    </form>
+</div>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.title }}</td>
+                <td> <img src="{{ asset('uploads/images/' ~ image.image)}}" height="50"></td>
+                <td>
+                    <a href="{{ path('user_image_show', {'id': image.id}) }}">show</a>
+                    <a href="{{ path('user_image_edit', {'id': image.id}) }}">edit</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('user_image_delete', {'id': image.id, 'sid': id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                        <button class="btn">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>

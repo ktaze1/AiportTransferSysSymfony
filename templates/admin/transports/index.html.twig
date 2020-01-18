@@ -1,0 +1,48 @@
+{% extends 'backendindex.html.twig' %}
+
+{% block title %}User List{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="main-panel">
+    <div class="content-wrapper"> 
+    <h1>Transports index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Stationid</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Transportcnt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            <tr>
+                <td>{{ transport.id }}</td>
+                <td>{{ transport.title }}</td>
+                <td>{{ transport.stitle }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ transport.image)}}"></td>
+                <td>{{ transport.price }}</td>
+                <td>{{ transport.status }}</td>
+                <td>{{ transport.transportcnt }}</td>
+                <td>
+                    <a href="{{ path('admin_transports_edit', {'id': transport.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
